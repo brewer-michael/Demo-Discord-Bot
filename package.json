@@ -1,0 +1,25 @@
+{
+  "name": "info-bot",
+  "version": "0.0.1",
+  "description": "My own Discord bot",
+  "main": "bot.js",
+  "author": "DeltaMike",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "discord.js": "^11.3.2",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "ping"
+  },
+  "repository": {
+    "type": "git",
+    "url": "c:/users/michaelpc/source/repos/my-bot"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "license": "MIT"
+}
