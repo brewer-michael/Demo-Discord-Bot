@@ -14,6 +14,7 @@ client.on('message', msg => {
       message.channel.send("pong!");
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
+    else message.channel.send("I'm sorry, I didn't understand");
 });
 
 client.login('NDU5NzQzMzcwNTAwMjQzNDc3.Dg_SfQ.uF6U5SBE6x1rj0Zr95vxzIymowU');
