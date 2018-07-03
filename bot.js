@@ -20,5 +20,4 @@ client.on('message', msg => {
     //else message.channel.send("I'm sorry, I didn't understand");
 });
 
-import  { botToken } from './config.js';
-client.login(botToken);
+client.login(config.botToken);
