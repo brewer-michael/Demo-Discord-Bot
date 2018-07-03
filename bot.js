@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    client.user.setActivity('Being Difficult', {type: 'WATCHING'});
+    client.user.setActivity('Being Difficult', {type: 'IS'});
 });
 
 client.on('message', msg => {
@@ -13,8 +13,12 @@ client.on('message', msg => {
     if (msg.content.startsWith("ping")) {
       msg.channel.send("pong!");
     }
+    if (msg.content.startsWith("events")) {
+      msg.channel.send("Upcoming Events");
+    }
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     //else message.channel.send("I'm sorry, I didn't understand");
 });
 
-client.login('NDU5NzQzMzcwNTAwMjQzNDc3.Dg_SfQ.uF6U5SBE6x1rj0Zr95vxzIymowU');
+import  { botToken } from './config.js';
+client.login(botToken);
