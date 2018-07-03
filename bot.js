@@ -11,10 +11,10 @@ client.on('message', msg => {
     //const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     //const args = msg.content.split(' ').slice(1).join(' ');
     //if (command === 'guide') return msg.channel.send('https://git.io/d.js-heroku');
-    if (msg.content.startsWith("ping")) {
+    if (msg.content.startsWith(config.token + "ping")) {
       msg.channel.send("pong!");
     }
-    if (msg.content.startsWith("events")) {
+    if (msg.content.startsWith(config.token + "events")) {
       msg.channel.send("Upcoming Events");
     }
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
