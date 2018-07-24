@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const ical = require('node-ical');
 //const config = require('./config.json');
 const client = new Discord.Client();
 
@@ -15,7 +16,20 @@ client.on('message', msg => {
       msg.channel.send("pong!");
     }
     if (msg.content.startsWith(process.env.BOTFLAG + "events")) {
-      msg.channel.send("Upcoming Events");
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      ical.fromURL('https://swgohevents.com/ical', {}, function(err, data) {
+        for (var k in data){
+          if (data.hasOwnProperty(k)) {
+            var ev = data[k]
+            msg.channel.send("Upcoming Events",
+            ev.summary,
+            'starts on',
+            ev.start.getDate());
+          else msg.channel.send("No Upcoming Events");
+          }
+        }
+      });
+      //msg.channel.send("Upcoming Events");
     }
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     //else message.channel.send("I'm sorry, I didn't understand");
