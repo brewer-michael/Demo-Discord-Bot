@@ -17,19 +17,20 @@ client.on('message', msg => {
     }
     if (msg.content.startsWith(process.env.BOTFLAG + "events")) {
       var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      //ical.fromURL('https://swgohevents.com/ical', {}, function(err, data) {
-      //  for (var k in data){
-      //    if (data.hasOwnProperty(k)) {
-      //      var ev = data[k]
-      //      msg.channel.send("Upcoming Events",
-      //      ev.summary,
-      //      'starts on',
-      //      ev.start.getDate());
-      //    else msg.channel.send("No Upcoming Events");
-      //    }
-      //  }
-      //});
-      msg.channel.send("Upcoming Events");
+      ical.fromURL('https://swgohevents.com/ical', {}, function(err, data) {
+       for (var k in data){
+         if (data.hasOwnProperty(k)) {
+           var ev = data[k]
+           msg.channel.send("Upcoming Events",
+           ev.summary,
+           'starts on',
+           ev.start.getDate());
+         }
+         else (msg.channel.send("No Upcoming Events"));
+         
+       }
+      });
+      //msg.channel.send("Upcoming Events");
     }
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     //else message.channel.send("I'm sorry, I didn't understand");
