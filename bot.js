@@ -15,6 +15,9 @@ client.on('message', msg => {
     if (msg.content.startsWith(process.env.BOTFLAG + "ping")) {
       msg.channel.send("pong!");
     }
+    if (msg.content.startsWith(process.env.BOTFLAG + "DeltaMike")) {
+      msg.channel.send("911-313-775");
+    }
     if (msg.content.startsWith(process.env.BOTFLAG + "events")) {
       var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       ical.fromURL('https://swgohevents.com/ical', {}, function(err, data) {
@@ -27,7 +30,7 @@ client.on('message', msg => {
            ev.start.getDate());
          }
          else (msg.channel.send("No Upcoming Events"));
-         
+
        }
       });
       //msg.channel.send("Upcoming Events");
