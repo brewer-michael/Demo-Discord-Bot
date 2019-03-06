@@ -15,6 +15,9 @@ client.on('message', msg => {
     if (msg.content.startsWith(process.env.BOTFLAG + "ping")) {
       msg.channel.send("pong!");
     }
+    if (msg.content.startsWith(process.env.BOTFLAG + "DeltaMike")) {
+      msg.channel.send("911-313-775");
+    }
     if (msg.content.startsWith(process.env.BOTFLAG + "events")) {
       var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       //ical.fromURL('https://swgohevents.com/ical', {}, function(err, data) {
@@ -32,7 +35,7 @@ client.on('message', msg => {
       msg.channel.send("Upcoming Events");
     }
     if (msg.content.startsWith("bob")) {
-      msg.shannel.send("@mightybob204/sphinx#9595 " + "BOB! HEY BOB!!");
+      msg.channel.send("@mightybob204/sphinx#9595 " + "BOB! HEY BOB!!");
     }
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     //else message.channel.send("I'm sorry, I didn't understand");
