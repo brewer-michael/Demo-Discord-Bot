@@ -37,6 +37,9 @@ client.on('message', msg => {
     if (msg.content.startsWith("bob")) {
       msg.channel.send("@mightybob204/sphinx#9595 " + "BOB! HEY BOB!!");
     }
+    if (msg.content.startsWith("dan ")) {
+      msg.channel.send("ALL HAIL KING" + '@carmaul / dan#3762');
+    }
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     //else message.channel.send("I'm sorry, I didn't understand");
 });
