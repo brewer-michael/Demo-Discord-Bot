@@ -40,6 +40,12 @@ client.on('message', msg => {
     if (msg.content.startsWith("dan")) {
       msg.channel.send("ALL HAIL KING" + "<@314491020987596802>");
     }
+    if (msg.content.startsWith(process.env.BOTFLAG + "diceroll")) {
+      msg.channel.send("Attack: '!roll d20 + 4 ! Attack with Longbow' Damage: '!roll d8 + 2 ! [weapon]'")
+    }
+    //if (msg.content.match(new RegExp(^(?=.*(?:\\b${bob})\\b).*$, 'i')) {
+    //  msg.channel.send("<@243164548884856833>" + "BOB! HEY BOB!!");
+    //}
     //else if (command === 'invite') return msg.channel.send(process.env.INVITE);
     //else message.channel.send("I'm sorry, I didn't understand");
 });
