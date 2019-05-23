@@ -1,13 +1,31 @@
 const Discord = require('discord.js');
 const ical = require('node-ical');
+const pool = require('./commands/postgres.js')
 //const config = require('./config.json');
-const client = new Discord.Client();
+const bot = new Discord.Client();
 
-client.on('ready', () => {
-    client.user.setActivity('Being Difficult', {type: 'IS'});
+bot.on('ready', () => {
+    bot.user.setActivity('Being Difficult', {type: 'IS'});
+    console.log('The bot is ready to go');
+    pool.connect( (err, client, done) => {
+            if(err) {
+              console.log(err)
+            }else
+            client.query('create table if not exists users( \
+                id text primary key, \
+                name text, \
+                count integer default 0)', (err, result) => {
+                    //disconnent from database on error
+                    done();
+                    if (err) {
+                            throw err;
+                    }
+            });
+    });
 });
 
-client.on('message', msg => {
+
+bot.on('message', msg => {
     //if (!msg.content.startsWith(process.env.PREFIX) || !msg.guild) return;
     //const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     //const args = msg.content.split(' ').slice(1).join(' ');
@@ -42,7 +60,6 @@ client.on('message', msg => {
     }
     if (msg.content.startsWith(process.env.BOTFLAG + "diceroll")) {
       msg.channel.send(" Attack Longbow: `'!roll d20 + 4 ! Attack with Longbow'` \n Attack Shortsword: `'!roll d20 + 5 ! Attack with Shortsword'` \n Damage: `'!roll d8 + 2 ! [weapon]'` \n Character page: http://bit.ly/2VTNiZw")
-        
     }
     //if (msg.content.match(new RegExp(^(?=.*(?:\\b${bob})\\b).*$, 'i')) {
     //  msg.channel.send("<@243164548884856833>" + "BOB! HEY BOB!!");
@@ -51,4 +68,4 @@ client.on('message', msg => {
     //else message.channel.send("I'm sorry, I didn't understand");
 });
 
-client.login(process.env.TOKEN);
+bot.login(process.env.TOKEN);
