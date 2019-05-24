@@ -1,10 +1,9 @@
-const pool = require('./commands/postgres.js')
 
 
-pool.connect( (err, client, done) => {
+postgres.Pool.connect( (err, client, done) => {
         if(err) {
           console.log(err)
-        }else
+        }else {
         console.log('Connected to database');
         client.query('create table if not exists dndchars( \
             id text primary key, \
@@ -37,5 +36,16 @@ pool.connect( (err, client, done) => {
                 if (err) {
                         throw err;
                 }
-        });
-});
+              });
+            }
+      });
+
+function insertData(receivedMessage){
+      let fullCommand = receivedMessage.content //optional add .substr(1) to remove leading !
+      let splitCommand = fullCommand.split(" ") // SPlit the message on space
+      let primaryCommand = splitCommand[0] // first word is the command
+      let arguments = splitCommand.slice(1) // all other words are arguments
+      console.log("Command received: " + primaryCommand)
+      console.log("Arguments: " + arguments)
+      return true
+}

@@ -1,4 +1,4 @@
-#adapted from SWGoHBot by
+//adapted from SWGoHBot by
 const Command = require('../base/Command');
 const moment = require('moment');
 
