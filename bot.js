@@ -59,7 +59,7 @@ bot.on('message', msg => {
       msg.channel.send("ALL HAIL KING" + "<@314491020987596802>");
     }
     if (msg.content.startsWith(process.env.BOTFLAG + "diceroll")) {
-      msg.channel.send(" Attack Longbow: `'!roll d20 + 4 ! Attack with Longbow'` \n Attack Shortsword: `'!roll d20 + 5 ! Attack with Shortsword'` \n Damage: `'!roll d8 + 2 ! [weapon]'` \n Character page: http://bit.ly/2VTNiZw")
+      msg.channel.send(" Attack Longbow: `'!roll d20 + 4 ! Attack with Longbow'` \n Attack Shortsword: `'!roll d20 + 5 ! Attack with Shortsword'` \n Range Damage: `'!roll d8 + 2 ! [weapon]'` \n Melee Damage: `'!roll d6 + 3 ! [weapon]'` \n Character page: http://bit.ly/2VTNiZw")
     }
     //if (msg.content.match(new RegExp(^(?=.*(?:\\b${bob})\\b).*$, 'i')) {
     //  msg.channel.send("<@243164548884856833>" + "BOB! HEY BOB!!");
